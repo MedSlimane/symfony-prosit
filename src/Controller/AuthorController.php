@@ -43,7 +43,7 @@ class AuthorController extends AbstractController
 
         return $this->render('author/showDetails.html.twig', ['author' => $author]);
     }
-   #[Route('/author/insertBd', name:'bd_insert')]
+  /* #[Route('/author/insertBd', name:'bd_insert')]
    public function insertBd(ManagerRegistry $manager): Response
    {
         $e = $manager->getManager();
@@ -55,7 +55,7 @@ class AuthorController extends AbstractController
         }
         $e->flush();
         return new Response('Authors inserted');
-   }
+   }*/
    #[Route('/author/showBd', name:'bd_show')]
     public function showBd(AuthorRepository $authorRepository): Response
     {
