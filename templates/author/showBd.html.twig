@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.id }}</td>
+            <td>{{ author.username }}</td>
+            <td>{{ author.email }}</td>
+            <td>
+                <a href="{{ path('author_edit', {'id': author.id}) }}">Edit</a>
+                <form method="post" action="{{ path('author_delete', {'id': author.id}) }}" onsubmit="return confirm('Are you sure you want to delete this author?');" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ author.id) }}">
+                    <button class="btn">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
